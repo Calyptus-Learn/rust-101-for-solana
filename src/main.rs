@@ -51,9 +51,9 @@ fn main() {
         Blue,
     }
     // Use the enum variants
-    let primary = Color::Red;
-    let secondary = Color::Green;
-    let third:Color=Color::Blue;
+    let primary : Color = Color::Red;
+    let secondary : Color= Color::Green;
+    let third : Color = Color::Blue;
     
     matcher_fn(primary);
     matcher_fn(secondary);
@@ -104,10 +104,9 @@ fn main() {
 
     fn matcher_fn(color:Color){
         match color{
-            Color::Red =>println!("This is red"),
-            Color::Blue=>println!("This is blue"),
-            Color::Green=>println!("This is green")
+            Color::Red => println!("This is red"),
+            Color::Blue => println!("This is blue"),
+            Color::Green => println!("This is green")
         }
     }
 }
-

@@ -10,46 +10,50 @@ fn main() {
     // float is used for decimals
     let float = 0.32;
 
-    // println!("Different numbers => {}, {}, {}", unsigned, signed, float);
+    println!("Different numbers => {}, {}, {}", unsigned, signed, float);
 
     // char is used for single character
     let character = 'a';
-    // println!("Character => {}", character);
+    println!("Character => {}", character);
 
     // boolean is used for true or false
     let boolean = true;
-    // println!("Boolean => {}", boolean);
+    println!("Boolean => {}", boolean);
 
     // tuple is used for grouping different data types
     let tuple = (1, -2, 3.0, 4, true);
-    // println!("Tuple => {:?}", tuple);
+    println!("Tuple => {:?}", tuple);
 
     // array is used for grouping same data types
     let array = [1, 2, 3, 4, 5];
-    // println!("Array => {:?}", array);
+    println!("Array => {:?}", array);
 
     // string is used for grouping characters
     let string = "Hello World";
-    // println!("String => {}", string);
+    println!("String => {}", string);
 
     // vector is used for grouping same data types and it is dynamic
     let mut vector = vec![1, 2, 3, 4, 5];
     vector.push(6);
-    // println!("Vector => {:?}", vector);
+    println!("Vector => {:?}", vector);
 
     // hash map is used for grouping 2 different data types as key value pair
     let mut hash_map = std::collections::HashMap::new();
     hash_map.insert("Solana", 100);
     hash_map.insert("age", 2);
-    // println!("Hash Map => {:?}", hash_map);
+    println!("Hash Map => {:?}", hash_map);
 
     // enums
-
+    #[derive(Debug)]
     enum Color {
         Red,
         Green,
         Blue,
     }
+    let mut enum_color :Color = Color::Red;
+    println!("When the color is Red the value is {:?}",enum_color);
+    enum_color = Color::Blue;
+    println!("Now the color is {:?}",enum_color); 
 
     // hash set is used for grouping same data types
 
@@ -57,8 +61,10 @@ fn main() {
 
     hash_set.insert("John Doe");
     hash_set.insert("Jane Doe");
+    hash_set.insert("Jane Doe"); 
+    // Should only display two entries
 
-    // println!("Hash Set => {:?}", hash_set);
+    println!("Hash Set => {:?}", hash_set);
 
     // Looping
 
@@ -92,5 +98,10 @@ fn main() {
     let array = [100, 200, 300, 400, 500];
     for (index, value) in array.iter().enumerate() {
         println!("Value at index {}: {}", index, value);
+    }
+
+    // Loop over key and values of the HashMap
+    for (k,v) in hash_map.iter() {
+        println!("HashMap key : {}, value : {}",k,v);
     }
 }

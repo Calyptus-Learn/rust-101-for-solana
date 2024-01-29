@@ -8,8 +8,9 @@ fn main() {
     basics::demonstrate_unsigned_integers();
     basics::demonstrate_signed_integers();
     basics::demonstrate_floating_point();
-    basics::demonstrate_booleans();
+    basics::demonstrate_tbooleans();
     basics::demonstrate_characters();
+    basics::demonstrate_fbooleans();
  
 
     println!("--- Data Structures ---");
@@ -60,6 +61,7 @@ fn main() {
     let rect = advanced::impl_examples::Rectangle::new(10, 20);
 
  
+
     println!("Rectangle area is {}", rect.area());
     println!("Is the rectangle a square? {}", rect.is_square());
 

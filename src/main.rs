@@ -68,11 +68,18 @@ fn main() {
 
     println!("--- Error Handling Example ---");
 
-    let result = advanced::error_handling::safe_divide(10.0, 0.0);
+    let result_err = advanced::error_handling::safe_divide_err(10.0, 0.0);
+    let result_ok = advanced::error_handling::safe_divide_ok(1.1,1.2);
 
-    match result {
+    match result_err {
         Ok(value) => println!("Division successful: {}", value),
         Err(error_message) => println!("Error: {}", error_message),
+    }
+
+    match  result_ok {
+        Ok(value) => println!("Division successful: {}", value),
+        Err(error_message) => println!("Error: {}", error_message),
+        
     }
 
     println!("--- Debug trait example---");

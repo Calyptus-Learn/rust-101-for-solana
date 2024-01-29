@@ -74,4 +74,12 @@ fn main() {
         Ok(value) => println!("Division successful: {}", value),
         Err(error_message) => println!("Error: {}", error_message),
     }
+
+    println!("--- Debug trait example---");
+
+    advanced::debug_trait::demonstrate_debug_trait();
+
+   
+
+   
 }

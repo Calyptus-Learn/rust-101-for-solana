@@ -9,7 +9,7 @@ pub fn demonstrate_for_loop() {
 
 // While Loop
 pub fn demonstrate_while_loop() {
-    let mut i = 0;
+    let mut i: i32 = 0;
     while i < 10 {
         println!("While Loop => {}", i);
         i += 1;

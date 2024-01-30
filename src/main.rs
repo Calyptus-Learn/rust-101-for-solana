@@ -1,96 +1,119 @@
+mod basics;
+mod control_flow;
+mod data_structures;
+mod advanced;
+
 fn main() {
-    // unsigned integer
-    // u8, u16, u32, u64, u128
-    let unsigned: u32 = 10;
+    println!("--- Basics ---");
+    basics::demonstrate_unsigned_integers();
+    basics::demonstrate_signed_integers();
+    basics::demonstrate_floating_point();
+    basics::demonstrate_tbooleans();
+    basics::demonstrate_characters();
+    basics::demonstrate_fbooleans();
+ 
 
-    // signed integer
-    // i8, i16, i32, i64, i128
-    let signed = -10;
+    println!("--- Data Structures ---");
+    data_structures::demonstrate_arrays();
+    data_structures::demonstrate_vectors();
+    data_structures::demonstrate_tuples();
+    data_structures::demonstrate_hash_maps();
 
-    // float is used for decimals
-    let float = 0.32;
 
-    // println!("Different numbers => {}, {}, {}", unsigned, signed, float);
+    println!("--- Control Flow ---");
+    control_flow::demonstrate_for_loop();
+    control_flow::demonstrate_infinite_loop();
+    control_flow::demonstrate_while_loop();
 
-    // char is used for single character
-    let character = 'a';
-    // println!("Character => {}", character);
+ 
 
-    // boolean is used for true or false
-    let boolean = true;
-    // println!("Boolean => {}", boolean);
+    println!("--- Structs in Rust: General Example ---");
 
-    // tuple is used for grouping different data types
-    let tuple = (1, -2, 3.0, 4, true);
-    // println!("Tuple => {:?}", tuple);
+    let user = advanced::structs::create_user("user@example.com".to_string(), "user123".to_string());
+    advanced::structs::print_user(&user);
 
-    // array is used for grouping same data types
-    let array = [1, 2, 3, 4, 5];
-    // println!("Array => {:?}", array);
+    println!("\n--- Structs in Rust: Solana Example ---");
 
-    // string is used for grouping characters
-    let string = "Hello World";
-    // println!("String => {}", string);
+    let solana_account = advanced::structs::create_solana_account("123xyz".to_string(), 1000.0);
+    advanced::structs::print_solana_account(&solana_account);
 
-    // vector is used for grouping same data types and it is dynamic
-    let mut vector = vec![1, 2, 3, 4, 5];
-    vector.push(6);
-    // println!("Vector => {:?}", vector);
+    println!("\n--- Structs in Rust: Email Account Example ---");
 
-    // hash map is used for grouping 2 different data types as key value pair
-    let mut hash_map = std::collections::HashMap::new();
-    hash_map.insert("Solana", 100);
-    hash_map.insert("age", 2);
-    // println!("Hash Map => {:?}", hash_map);
+    let email_account = advanced::structs::create_email_account("Inaa.eth@gmail.com".to_string(), "1234sdfg".to_string());
+    advanced::structs::read_email_account(&email_account);
 
-    // enums
+    println!("Traffic Light Example:");
+    let light = advanced::enums::TrafficLight::Red;
+    advanced::enums::traffic_light_action(light);
 
-    enum Color {
-        Red,
-        Green,
-        Blue,
+    println!("\nSolana Transaction Example:");
+    let payment = advanced::enums::SolanaTransaction::Pay("Alice".to_string(), "Bob".to_string(), 100);
+    advanced::enums::process_solana_transaction(payment);
+
+
+
+     println!("--- Match Examples ---");
+
+  
+     advanced::match_example::match_number(2);
+ 
+    
+     advanced::match_example::match_boolean(true);
+
+     advanced::match_example::match_colors("Yellow".to_string());
+
+     println!("--- Impl Example struct  ---");
+
+  
+    let rect = advanced::impl_examples::Rectangle::new(10, 20);
+
+    let rect = advanced::impl_examples::Rectangle::new(10, 20);
+
+ 
+
+    println!("Rectangle area is {}", rect.area());
+    println!("Is the rectangle a square? {}", rect.is_square());
+
+
+    println!("--- Impl Example enum  ---");
+
+   let shape= advanced::impl_examples::Shape::Circle(5.0);
+
+    println!("-Circle area is {} ", shape.area() );
+
+    let rectangle_shape= advanced::impl_examples::Shape::Rectangle { width: 4.9, height: 9.8 };
+
+    println!("Reactangle area is {}", rectangle_shape.area());
+
+
+
+
+  
+   
+
+
+
+    println!("--- Error Handling Example ---");
+
+    let result_err: Result<f64, String> = advanced::error_handling::safe_divide_err(10.0, 0.0);
+    let result_ok: Result<f64, String> = advanced::error_handling::safe_divide_ok(1.1,1.2);
+
+    match result_err {
+        Ok(value) => println!("Division successful: {}", value),
+        Err(error_message) => println!("Error: {}", error_message),
     }
 
-    // hash set is used for grouping same data types
-
-    let mut hash_set = std::collections::HashSet::new();
-
-    hash_set.insert("John Doe");
-    hash_set.insert("Jane Doe");
-
-    // println!("Hash Set => {:?}", hash_set);
-
-    // Looping
-
-    for i in 0..10 {
-        println!("Looping => {}", i);
+    match  result_ok {
+        Ok(value) => println!("Division successful: {}", value),
+        Err(error_message) => println!("Error: {}", error_message),
+        
     }
 
-    let mut i = 0;
-    while i < 10 {
-        println!("Looping => {}", i);
-        i += 1;
-    }
+    println!("--- Debug trait example---");
 
-    let mut counter = 0;
-    loop {
-        println!("Looping...");
+    advanced::debug_trait::demonstrate_debug_trait();
 
-        counter += 1;
-        if counter >= 5 {
-            break;
-        }
-    }
+   
 
-    // Looping over an array
-    let array = [10, 20, 30, 40, 50];
-    for element in array.iter() {
-        println!("Array element: {}", element);
-    }
-
-    // Looping over an iterator
-    let array = [100, 200, 300, 400, 500];
-    for (index, value) in array.iter().enumerate() {
-        println!("Value at index {}: {}", index, value);
-    }
+   
 }

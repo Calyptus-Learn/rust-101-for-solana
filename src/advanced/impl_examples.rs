@@ -26,3 +26,41 @@ impl Rectangle {
         self.width == self.height
     }
 }
+
+pub struct Circle {
+    radius: f64
+}
+
+impl Circle {
+
+  pub  fn new (radius:f64) -> Circle {
+        Circle{
+            radius
+        }
+    }
+
+   pub fn calculate_area(&self) -> f64{
+    std::f64::consts::PI * &self.radius * &self.radius
+   }
+
+   pub fn circumference(&self) -> f64 {
+    2.0 * std::f64::consts::PI * self.radius
+}
+    
+}
+
+pub enum Shape{
+    Circle(f64),
+    Rectangle{width:f64,  height:f64}
+}
+
+impl Shape {
+
+    pub fn area (&self) -> f64{
+        match self {
+            Shape::Circle(radius) => std::f64::consts::PI * radius * radius,
+            Shape::Rectangle { width, height } => width * height,
+        }
+    }
+    
+}

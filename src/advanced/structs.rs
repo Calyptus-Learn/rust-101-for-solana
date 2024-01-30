@@ -56,3 +56,27 @@ pub fn print_solana_account(account: &SolanaAccount) {
     println!("Address: {}, Balance: {} SOL, Data Size: {} bytes, Executable: {}",
              account.address, account.balance_sol, account.data.len(), account.is_executable);
 }
+
+
+pub struct  EmailAccountLogin {
+    email: String,
+    password: String,
+    otps: Vec<u8>
+
+
+
+}
+
+pub fn create_email_account (email: String, password:String) -> EmailAccountLogin {
+
+    EmailAccountLogin {
+        email,
+        password,
+        otps: Vec::new()
+    }
+
+}
+
+pub fn read_email_account(emailaccount: &EmailAccountLogin){
+    println!("Email account information are: {} {} {}  ", emailaccount.email, emailaccount.password, emailaccount.otps.len())
+}

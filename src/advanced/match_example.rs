@@ -22,3 +22,10 @@ pub fn match_boolean(value: bool) {
         false => println!("The value is false!"),
     }
 }
+
+pub fn match_colors(color:String){
+    match color.as_str() {
+        "Yellow" => println!("Color is Yello"),
+        _ => print!("Other color than Yellow")
+    }
+}

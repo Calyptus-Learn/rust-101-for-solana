@@ -37,6 +37,11 @@ fn main() {
     let solana_account = advanced::structs::create_solana_account("123xyz".to_string(), 1000.0);
     advanced::structs::print_solana_account(&solana_account);
 
+    println!("\n--- Structs in Rust: Email Account Example ---");
+
+    let email_account = advanced::structs::create_email_account("Inaa.eth@gmail.com".to_string(), "1234sdfg".to_string());
+    advanced::structs::read_email_account(&email_account);
+
     println!("Traffic Light Example:");
     let light = advanced::enums::TrafficLight::Red;
     advanced::enums::traffic_light_action(light);
@@ -55,9 +60,13 @@ fn main() {
     
      advanced::match_example::match_boolean(true);
 
-     println!("--- Impl Example ---");
+     advanced::match_example::match_colors("Yellow".to_string());
+
+     println!("--- Impl Example struct  ---");
 
   
+    let rect = advanced::impl_examples::Rectangle::new(10, 20);
+
     let rect = advanced::impl_examples::Rectangle::new(10, 20);
 
  
@@ -66,10 +75,28 @@ fn main() {
     println!("Is the rectangle a square? {}", rect.is_square());
 
 
+    println!("--- Impl Example enum  ---");
+
+   let shape= advanced::impl_examples::Shape::Circle(5.0);
+
+    println!("-Circle area is {} ", shape.area() );
+
+    let rectangle_shape= advanced::impl_examples::Shape::Rectangle { width: 4.9, height: 9.8 };
+
+    println!("Reactangle area is {}", rectangle_shape.area());
+
+
+
+
+  
+   
+
+
+
     println!("--- Error Handling Example ---");
 
-    let result_err = advanced::error_handling::safe_divide_err(10.0, 0.0);
-    let result_ok = advanced::error_handling::safe_divide_ok(1.1,1.2);
+    let result_err: Result<f64, String> = advanced::error_handling::safe_divide_err(10.0, 0.0);
+    let result_ok: Result<f64, String> = advanced::error_handling::safe_divide_ok(1.1,1.2);
 
     match result_err {
         Ok(value) => println!("Division successful: {}", value),

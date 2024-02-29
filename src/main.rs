@@ -95,38 +95,72 @@ fn main() {
     }
 
     // Implementation
-    
+
     // Define a struct
-    struct Rectangle { 
-        width: u32, 
-        height: u32
+    struct Rectangle {
+        width: u32,
+        height: u32,
     }
-    
+
     // Add a method to the struct via impl keyword
-    impl Rectangle { 
-        fn area(&self) -> u32 { 
-            self.width * self.height 
-        }
-    }
-    
-    let rect = Rectangle { width: 30, height: 50 };
-    println!("The area of the rectangle is {}", rect.area());
-    
-    // Implementation using trait
-    trait HasArea { 
-        fn area(&self) -> f64;
-    }
-    
-    struct Square { 
-        side: f64
-    }
-    
-    impl HasArea for Square { 
-        fn area(&self) -> f64 { 
-            self.side * self.side 
+    impl Rectangle {
+        fn area(&self) -> u32 {
+            self.width * self.height
         }
     }
 
-    let area_calc = Square {side: 2.0};
-    println!("Calculation for the area of the rectangle using a trait is {}", area_calc.area());
+    let rect = Rectangle {
+        width: 30,
+        height: 50,
+    };
+    println!("The area of the rectangle is {}", rect.area());
+
+    // Implementation using trait
+    trait HasArea {
+        fn area(&self) -> f64;
+    }
+
+    struct Square {
+        side: f64,
+    }
+
+    impl HasArea for Square {
+        fn area(&self) -> f64 {
+            self.side * self.side
+        }
+    }
+
+    let area_calc = Square { side: 2.0 };
+    println!(
+        "Calculation for the area of the rectangle using a trait is {}",
+        area_calc.area()
+    );
+
+    //Implementation with more than one method
+    struct Circle {
+        radius: f64,
+    }
+
+    impl Circle {
+        fn area(&self) -> f64 {
+            3.14 * (self.radius * self.radius)
+        }
+
+        fn perimeter(&self) -> f64 {
+            2.0 * 3.14 * self.radius
+        }
+    }
+
+    let circle = Circle { radius: 10.0 };
+
+    println!("The area of the circle is {}", circle.area());
+
+    //Without round value of perimeter
+    println!("The perimeter of the circle is {}", circle.perimeter());
+
+    // //With round value of perimeter
+    // println!(
+    //     "The perimeter of the circle is {}",
+    //     circle.perimeter().round()
+    // );
 }

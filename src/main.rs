@@ -1,35 +1,36 @@
+#[allow(dead_code)]
 fn main() {
     // unsigned integer
     // u8, u16, u32, u64, u128
-    let unsigned: u32 = 10;
+    let _unsigned: u32 = 10;
 
     // signed integer
     // i8, i16, i32, i64, i128
-    let signed = -10;
+    let _signed = -10;
 
     // float is used for decimals
-    let float = 0.32;
+    let _float = 0.32;
 
     // println!("Different numbers => {}, {}, {}", unsigned, signed, float);
 
     // char is used for single character
-    let character = 'a';
+    let _character = 'a';
     // println!("Character => {}", character);
 
     // boolean is used for true or false
-    let boolean = true;
+    let _boolean = true;
     // println!("Boolean => {}", boolean);
 
     // tuple is used for grouping different data types
-    let tuple = (1, -2, 3.0, 4, true);
+    let _tuple = (1, -2, 3.0, 4, true);
     // println!("Tuple => {:?}", tuple);
 
     // array is used for grouping same data types
-    let array = [1, 2, 3, 4, 5];
+    let _array = [1, 2, 3, 4, 5];
     // println!("Array => {:?}", array);
 
     // string is used for grouping characters
-    let string = "Hello World";
+    let _string = "Hello World";
     // println!("String => {}", string);
 
     // vector is used for grouping same data types and it is dynamic
